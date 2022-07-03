@@ -1,0 +1,28 @@
+How to run?
+-------------
+- Project includes a 'files' folder with 3 text files.
+- Run Test class main method to see output of results.
+- You can add additional text files to above folder.
+
+Algorithm
+-----------
+- From the sentences in each file we create a map in which:
+ Key - An integer that stands for the number of words in each sentence in the list of sentences included in the map value.
+ Value - List of SentenceHolder objects; each SentenceHolder holds all data for a single sentence.
+- The idea is that there is no point of comparing sentences with a DIFFERENT number of words in them as they can't be
+similar, (according to the assignment's assumptions).
+- In addition, for future scaling, this allows us parallel execution within step 3 of 'FileProcessor.process' method;
+i.e. each entry in the map can be executed by a separate thread as each entry contributes its own results to the final
+output with no dependency in the input/output of/from rest of the map entries.
+- Note: Code creates a TreeMap but a simple HashMap would have satisfy us as well.
+
+Complexity
+------------
+- For each group of sentences, we perform following comparison:
+1st sentence against all sentences which follow it in the list (i.e. all other sentences)
+2nd sentence against all sentences which follow it in the list (i.e. all sentences except for 1st sentence)
+2nd sentence against all sentences which follow it in the list (i.e. all sentences except for 1st & 2nd sentences)
+, and so on.
+- This is not a case of O(n^2) but it is not far from it.
+- Given the time I had to think about this and the limit of time I allocated for this exercise, I guess that if I had 2
+more weeks I would/might have come with a better data structure which would have probably improve the performance.

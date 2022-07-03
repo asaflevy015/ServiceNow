@@ -1,0 +1,9 @@
+# ignore ALL .iml files
+*.iml
+
+# ignore ALL .log files
+*.log
+
+# ignore ALL files in below directories
+.idea/
+out/
